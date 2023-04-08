@@ -1,4 +1,3 @@
-import ReactRefreshWebpackPlugin from "@pmmmwh/react-refresh-webpack-plugin";
 import { CleanWebpackPlugin } from "clean-webpack-plugin";
 import CopyWebpackPlugin from "copy-webpack-plugin";
 import CssMinimizerWebpackPlugin from "css-minimizer-webpack-plugin";
@@ -7,7 +6,6 @@ import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import * as path from "path";
-import ReactRefreshTypeScript from "react-refresh-typescript";
 import * as webpack from "webpack";
 import "webpack-dev-server";
 
@@ -96,9 +94,6 @@ const config: webpack.Configuration = {
           loader: "ts-loader",
           options: {
             transpileOnly: mode === "development",
-            getCustomTransformers: () => ({
-              before: compact([mode === "development" ? ReactRefreshTypeScript() : null]),
-            }),
           },
         },
       },
@@ -133,7 +128,6 @@ const config: webpack.Configuration = {
         })
       : null,
     mode === "development" ? new ForkTsCheckerWebpackPlugin() : null,
-    mode === "development" ? new ReactRefreshWebpackPlugin({ overlay: true }) : null,
     mode === "development"
       ? new EslintWebpackPlugin({ extensions: ["ts", "tsx"], failOnError: false, files: "./src" })
       : null,

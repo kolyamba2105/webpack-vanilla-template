@@ -13,26 +13,13 @@ module.exports = {
       },
     },
     {
-      extends: [
-        "eslint:recommended",
-        "plugin:@typescript-eslint/recommended",
-        "plugin:react-hooks/recommended",
-        "plugin:react/recommended",
-      ],
+      extends: ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
       files: ["./**/*.ts*"],
       parser: "@typescript-eslint/parser",
       parserOptions: {
         project: ["./tsconfig.json"],
       },
-      plugins: ["@typescript-eslint", "react"],
-      rules: {
-        "react/react-in-jsx-scope": "off",
-      },
-      settings: {
-        react: {
-          version: "detect",
-        },
-      },
+      plugins: ["@typescript-eslint"],
     },
   ],
 };

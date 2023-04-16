@@ -87,7 +87,7 @@ const config: webpack.Configuration = {
       },
       {
         exclude: /node_modules/,
-        test: /\.(ts|tsx)$/,
+        test: /\.ts$/,
         use: {
           loader: "ts-loader",
           options: {
@@ -127,11 +127,11 @@ const config: webpack.Configuration = {
       : null,
     mode === "development" ? new ForkTsCheckerWebpackPlugin() : null,
     mode === "development"
-      ? new EslintWebpackPlugin({ extensions: ["ts", "tsx"], failOnError: false, files: "./src" })
+      ? new EslintWebpackPlugin({ extensions: ["ts"], failOnError: false, files: "./src" })
       : null,
   ]),
   resolve: {
-    extensions: [".tsx", ".ts", ".js"],
+    extensions: [".ts", ".js"],
   },
   stats: {
     preset: "errors-warnings",

@@ -87,12 +87,9 @@ const config: webpack.Configuration = {
       },
       {
         exclude: /node_modules/,
-        test: /\.ts$/,
+        test: /\.(js|ts)$/,
         use: {
-          loader: "ts-loader",
-          options: {
-            transpileOnly: mode === "development",
-          },
+          loader: "babel-loader",
         },
       },
     ],
@@ -127,7 +124,7 @@ const config: webpack.Configuration = {
       : null,
     mode === "development" ? new ForkTsCheckerWebpackPlugin() : null,
     mode === "development"
-      ? new EslintWebpackPlugin({ extensions: ["ts"], failOnError: false, files: "./src" })
+      ? new EslintWebpackPlugin({ extensions: ["js", "ts"], failOnError: false, files: "./src" })
       : null,
   ]),
   resolve: {

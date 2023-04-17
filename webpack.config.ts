@@ -47,7 +47,7 @@ const cssLoaders: webpack.RuleSetUse = [
 const config: webpack.Configuration = {
   mode,
   entry: {
-    bundle: path.resolve(__dirname, "src/index.ts"),
+    bundle: path.resolve(__dirname, "src/index.js"),
   },
   output: {
     clean: true,

@@ -1,6 +1,6 @@
 # Webpack Template
 
-Webpack template for TypeScript and Tailwind CSS. Also includes ESLint and Prettier integrations.
+Webpack vanilla template. Supports both JavaScript and TypeScript. Also includes ESLint, Prettier and Tailwind CSS integrations.
 
 ## Setup
 
